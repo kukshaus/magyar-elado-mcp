@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "MCP server for selling on Hungarian marketplaces: price research (HardverApró, Jófogás), platform recommendation, listing package generation",
   "type": "module",
+  "license": "MIT",
   "bin": {
     "magyar-elado-mcp": "dist/index.js"
   },
