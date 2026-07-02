@@ -1,5 +1,6 @@
 node_modules/
 mcp/dist/
+/fotok/
 .DS_Store
 .env
 .env.*

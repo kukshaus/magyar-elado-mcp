@@ -38,7 +38,7 @@ export const PLATFORMS: Platform[] = [
     id: "jofogas",
     name: "Jófogás",
     url: "https://www.jofogas.hu",
-    postUrl: "https://www.jofogas.hu/hirdetes-feladas",
+    postUrl: "https://www2.jofogas.hu/ai",
     audience: "A legnagyobb általános magyar apróhirdetési oldal, széles (nem szakmai) közönség.",
     fees: "Magánszemélyeknek kategóriától függően ingyenes vagy pár száz Ft/hirdetés; kiemelés fizetős.",
     bestFor: [
