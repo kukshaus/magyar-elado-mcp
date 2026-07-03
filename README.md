@@ -40,10 +40,21 @@ marketplace data and writes files on your machine.
 | 📦 **Ready-to-post package** | One paste-ready file per platform + a `fotok/` folder for your pictures + a posting checklist with direct links and photo tips |
 | 🛡️ **Scam-aware** | Built-in warnings about the classic Hungarian marketplace scams (fake courier links, overpayment, advance-fee "buyers") |
 
-**What it deliberately does NOT do:** auto-posting. These platforms have no
-public posting APIs, and automating their web UIs violates their terms and
-risks account bans. This tool gets you to "paste + upload photos" — the last
-30 seconds stay yours.
+| 🤖 **Assisted posting (Playwright)** | Optional `autopost` CLI: opens *your* logged-in browser profile, fills the Jófogás / HardverApró forms and uploads your photos — **you review and click the final submit button** (or pass `--auto` at your own risk) |
+
+```bash
+# after photos are in the package's fotok/ folder:
+node mcp/dist/autopost.js ~/Elado/<package-dir> --platform all
+```
+
+First run: log in once in the opened browser window — the session persists in
+`~/.magyar-elado/browser-profile`. No credentials ever touch the code.
+
+**Honest limits:** these platforms have no public posting APIs, and heavy
+automation violates their terms — that's why the default keeps a human on the
+submit button. **Facebook Marketplace is never DOM-automated** (scripted
+activity there can suspend your whole personal account); for FB the tool opens
+the form and feeds your clipboard step by step instead.
 
 ## 🚀 Quick start
 

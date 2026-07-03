@@ -47,10 +47,17 @@ paste-ready files + photo folder + checklist to `~/Elado/`).
    user: copy photos into `fotok/`, then paste each text at the platform's
    posting URL.
 
+6. **Assisted posting (only when the user asks)**: run
+   `node <repo>/mcp/dist/autopost.js <package-dir> --platform jofogas|hardverapro|all`
+   in an interactive terminal. It uses the user's own persistent browser
+   profile (login once), fills forms + uploads photos, and stops for the user
+   to review and click submit (`--auto` clicks it for them — explicit opt-in only).
+
 ## Hard rules
 
-- NO auto-posting: these platforms have no public posting API, and browser
-  automation of posting violates their ToS. Deliverable = paste-ready package.
+- Facebook Marketplace is NEVER DOM-automated (whole-account suspension risk);
+  the CLI only opens the page and feeds the clipboard. Other platforms:
+  user's own session, human review before submit by default.
 - Prices in HUF, rounded to ×500/×1000.
 - Warn about courier-link / overpayment / advance-fee scams when shipping.
 - Refuse listings for items prohibited on these platforms (weapons, medicine,

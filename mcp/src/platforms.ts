@@ -18,7 +18,7 @@ export const PLATFORMS: Platform[] = [
     id: "hardverapro",
     name: "HardverApró",
     url: "https://hardverapro.hu",
-    postUrl: "https://hardverapro.hu/muvelet/apro/felad.php",
+    postUrl: "https://hardverapro.hu/hirdetesfeladas/uj.php",
     audience:
       "A legnagyobb magyar PC/tech közösség (Prohardver! csoport). A vevők értenek a hardverhez és ismerik a piaci árakat.",
     fees: "Ingyenes magánszemélyeknek; regisztráció és fórum-előélet növeli a bizalmat.",

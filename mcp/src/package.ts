@@ -119,6 +119,15 @@ export async function writeListingPackage(input: PackageInput): Promise<{
   await fs.writeFile(checklistFile, checklist.join("\n"), "utf8");
   files.push(checklistFile);
 
+  // Machine-readable copy for the autopost CLI
+  const jsonFile = path.join(dir, "listing.json");
+  await fs.writeFile(
+    jsonFile,
+    JSON.stringify({ product: input.product, photosDir: "fotok", listings: input.listings }, null, 2),
+    "utf8",
+  );
+  files.push(jsonFile);
+
   await fs.writeFile(
     path.join(photoDir, "IDE_MASOLD_A_KEPEKET.txt"),
     "Másold ebbe a mappába a termékfotókat, majd töltsd fel őket a hirdetésekhez.\n",

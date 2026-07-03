@@ -61,7 +61,7 @@ Write a SEPARATE text per platform — never one generic blob. Rules:
 
 ## Step 4 — Deliver the package
 
-With MCP: call `create_listing_package` (writes `~/Elado/<date>-<slug>/` with one paste-ready file per platform, a `fotok/` folder and `CHECKLIST.md`).
+With MCP: call `create_listing_package` (writes `~/Elado/<date>-<slug>/` with one paste-ready file per platform, a `listing.json`, a `fotok/` folder and `CHECKLIST.md`).
 Without MCP: write the same structure yourself with the Write tool.
 
 Then give the user a compact summary:
@@ -69,9 +69,19 @@ Then give the user a compact summary:
 2. Platformok + feladási linkek.
 3. **Teendőd: másold a fotókat a `fotok/` mappába, majd platformonként illeszd be a kész szöveget.** Fotótippek a checklistben.
 
+## Step 5 — Assisted posting (when the user asks to automate it)
+
+Once photos are in `fotok/`, run the autopost CLI from this project's `mcp/` dir (in a visible terminal — it's interactive):
+
+```bash
+node <repo>/mcp/dist/autopost.js ~/Elado/<package-dir> --platform jofogas   # or hardverapro | all
+```
+
+It opens a persistent browser profile (`~/.magyar-elado/browser-profile`) where the user logs in ONCE, then fills title/price/description and uploads the photos. **Default: the user reviews and clicks the submit button themselves.** `--auto` clicks submit too — only pass it if the user explicitly asks. If the script can't find a field (sites change), it says so and the user fills that one field by hand.
+
 ## Hard rules
 
-- **No auto-posting.** These platforms have no public posting API; browser-automating login/posting violates their ToS and risks account bans. The deliverable is a paste-ready package.
+- **Facebook Marketplace is never DOM-automated** — scripted activity risks the user's entire personal account. The autopost CLI only opens the page and feeds the clipboard; the rest of the platforms use the user's own session with human review before submit by default.
 - Prices always in HUF, rounded to a "nice" value (× 500 / × 1000).
 - Warn about the standard scams if shipping is involved (fake courier links, "overpayment", advance-fee buyers).
 - If the product is regulated or prohibited on these platforms (fegyver, gyógyszer, dohány, élő állat szabályok stb.), stop and tell the user instead of drafting listings.
